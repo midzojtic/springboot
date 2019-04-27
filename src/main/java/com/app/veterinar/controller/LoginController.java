@@ -21,7 +21,7 @@ public class LoginController {
     RestDto<UserModel> login(@NotEmpty String username, @NotEmpty String password) {
 
         RestDto<UserModel> restDto = new RestDto<>();
-
+            String str = "";
         return restDto;
     }
 }
