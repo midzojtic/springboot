@@ -2,7 +2,9 @@ package com.app.veterinar.service;
 
 import com.app.veterinar.model.UserModel;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Service
 public class LoginService {
 

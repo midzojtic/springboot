@@ -15,9 +15,9 @@ import javax.validation.Valid;
 /**
  * Controller is used for login to Veterinar application
  */
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/login")
-@CrossOrigin
 @Validated
 public class LoginController {
 
@@ -30,7 +30,8 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping(value = "/")
+    @CrossOrigin(origins = "http://localhost:4200")
     public @ResponseBody
     RestDto<UserModel> login(@RequestBody @Valid RestDto<UserModel> user) {
 
