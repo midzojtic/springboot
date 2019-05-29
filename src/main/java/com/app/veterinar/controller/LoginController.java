@@ -30,23 +30,24 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping(value = "/")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping
     public @ResponseBody
-    RestDto<UserModel> login(@RequestBody @Valid RestDto<UserModel> user) {
+    RestDto<UserModel> login(@RequestBody @Valid UserModel user) {
 
         LOG.info("Accessed login");
 
+        LOG.debug("User => username: {}, password: {}", user.getUsername(), user.getPassword());
+
         //TODO dodati enkripciju i validaciju preko tokena
-        boolean result = service.validateUser(user.getData());
+        boolean result = service.validateUser(user);
 
         if (!result) {
             LOG.info("Wrong username or password");
             return RestDto.fail("Wrong username or password");
         } else {
             LOG.info("Successfull login");
-            LOG.trace("User: {}", user.getData().toString());
-            return RestDto.success(user.getData(), "Login was successful");
+            LOG.trace("User: {}", user.toString());
+            return RestDto.success(user, "Login was successful");
         }
     }
 }
