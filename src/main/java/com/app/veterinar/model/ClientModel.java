@@ -6,7 +6,6 @@ public class ClientModel {
     private String surname;
     private Integer phone;
     private String email;
-    private PetModel pet;
 
     public String getName() {
         return name;
@@ -40,13 +39,6 @@ public class ClientModel {
         this.email = email;
     }
 
-    public PetModel getPet() {
-        return pet;
-    }
-
-    public void setPet(PetModel pet) {
-        this.pet = pet;
-    }
 
     @Override
     public String toString() {
@@ -55,7 +47,6 @@ public class ClientModel {
                 ", surname='" + surname + '\'' +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
-                ", pet=" + pet +
                 '}';
     }
 }
