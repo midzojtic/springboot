@@ -28,7 +28,7 @@ public class HomeController {
 
         LOG.info("Accessed getClients");
 
-        List<ClientModel> listClients = service.getClients();
+        List<ClientModel> listClients = service.findAll();
 
         if (listClients == null && listClients.isEmpty())
             return RestDto.fail("Error while trying to fetch clients");
