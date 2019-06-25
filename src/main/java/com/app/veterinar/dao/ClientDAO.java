@@ -16,7 +16,8 @@ public class ClientDAO {
     private JdbcTemplate jdbcTemplate;
 
     public List<ClientModel> findAllClients() {
-        return jdbcTemplate.query("select * from CLIENT", new ClientModelRowMapper());
+        return jdbcTemplate.query("select CLIENT_NAME,CLIENT_SURNAME,CELL_NUMBER," +
+                " EMAIL from CLIENT", new ClientModelRowMapper());
     }
 
 
