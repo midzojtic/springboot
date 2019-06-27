@@ -1,7 +1,17 @@
-package com.app.veterinar.model;
+package com.app.veterinar.dao.entity;
 
-public class ClientModel {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+
+@Entity
+public class Client {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Integer clientId;
     private String name;
     private String surname;

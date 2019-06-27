@@ -19,22 +19,30 @@ public class HomeController {
 
     private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
+    private ClientService clientService;
+
     @Autowired
-    private ClientService service;
+    public void setClientService(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @GetMapping("/getClients")
     public @ResponseBody
     RestDto<List<ClientModel>> getClients() {
 
         LOG.info("Accessed getClients");
-
-        List<ClientModel> listClients = service.findAll();
+        List<ClientModel> listClients = clientService.listAll();
 
         if (listClients == null && listClients.isEmpty())
             return RestDto.fail("Error while trying to fetch clients");
 
         LOG.info("Executed getClients successfully");
-        listClients.forEach(model -> LOG.trace("Client: {}", model.toString()));
+        listClients.forEach(model -> LOG.debug("Client: " + model.toString()));
+
+        for (ClientModel model : listClients) {
+            System.out.println("Model: " + model.getName());
+
+        }
 
         return RestDto.success(listClients, "Success");
     }
