@@ -39,11 +39,6 @@ public class HomeController {
         LOG.info("Executed getClients successfully");
         listClients.forEach(model -> LOG.debug("Client: " + model.toString()));
 
-        for (ClientModel model : listClients) {
-            System.out.println("Model: " + model.getName());
-
-        }
-
         return RestDto.success(listClients, "Success");
     }
 
